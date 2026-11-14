@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dgoyjypo44e3f"]
+
+[ext_resource type="Script" uid="uid://hw72j2tvkbee" path="res://kill_zone.gd" id="1_7k7bx"]
+[ext_resource type="Texture2D" uid="uid://bxb7m3lxdn2ma" path="res://spike.png" id="2_tggh8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2y71"]
+size = Vector2(66, 56)
+
+[node name="Spike" type="Area2D" unique_id=201491896]
+script = ExtResource("1_7k7bx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=879240246]
+texture = ExtResource("2_tggh8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=731109501]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_u2y71")

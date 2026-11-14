@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bquuso1t48yh8" path="res://player.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://0ejprodd2uoh" path="res://sandMid.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://cnr6lokqw5721" path="res://stoneMid.png" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dgoyjypo44e3f" path="res://spike.tscn" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://hw72j2tvkbee" path="res://kill_zone.gd" id="5_lquwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u2y71"]
@@ -63,10 +64,14 @@ texture = ExtResource("4_1bvp3")
 2:3/0 = 0
 3:3/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_272bh"]
+scenes/1/scene = ExtResource("5_7mycd")
+
 [sub_resource type="TileSet" id="TileSet_wnspn"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0xm2m")
 sources/2 = SubResource("TileSetAtlasSource_lquwl")
+sources/3 = SubResource("TileSetScenesCollectionSource_272bh")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_abbyf"]
 size = Vector2(16641, 3717.5)
@@ -85,6 +90,7 @@ texture = ExtResource("1_0xm2m")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1768659534]
 position = Vector2(197.83282, 192.30846)
+zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
@@ -104,6 +110,6 @@ script = ExtResource("5_lquwl")
 position = Vector2(8433.5, 2693.25)
 shape = SubResource("RectangleShape2D_abbyf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="kill area/CollisionShape2D" unique_id=639965192]
-position = Vector2(4.5, -5988.25)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="kill area" unique_id=639965192]
+position = Vector2(8438, -3295)
 shape = SubResource("RectangleShape2D_abbyf")
