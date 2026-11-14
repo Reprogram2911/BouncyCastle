@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bsjdb4mut10gy" path="res://coin.tscn" id="6_5vw27"]
 [ext_resource type="Script" uid="uid://brdgvmny5vhea" path="res://coin_label.gd" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://bg3rvfueerxbx" path="res://goal.tscn" id="7_kek77"]
+[ext_resource type="Script" uid="uid://b4dhjwpchxddg" path="res://win_screen.gd" id="10_4c57u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u2y71"]
 size = Vector2(123, 263)
@@ -125,3 +126,13 @@ shape = SubResource("RectangleShape2D_abbyf")
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("7_272bh")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1384057360 groups=["win_screen"]]
+script = ExtResource("10_4c57u")
+
+[node name="Label" type="Label" parent="CanvasLayer2" unique_id=1106075747]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
