@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dkqrps3832630"]
+
+[node name="main" type="Node" unique_id=223951926]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1749066649]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=308969439]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=265947089]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1768659534]
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1222901582]
