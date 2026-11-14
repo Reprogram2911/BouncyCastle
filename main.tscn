@@ -59,7 +59,7 @@ scale = Vector2(9.546875, 8.53125)
 texture = ExtResource("1_0xm2m")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1768659534]
-position = Vector2(94, 1)
+position = Vector2(197.83282, 192.30846)
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
