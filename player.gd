@@ -1,32 +1,40 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-
+var started := false
 var was_on_floor := false
+var last_impact_speed := 0.0
+var window := JumpWindow.new()
 
 
 func _physics_process(delta: float) -> void:
+	window.tick(delta)
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	var just_pressed := Input.is_action_just_pressed("ui_accept")
+	if just_pressed:
+		window.press()
+
+	if not started and is_on_floor() and just_pressed:
+		velocity.y = -BounceLogic.START_SPEED
+		started = true
+		window.consume()
 
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	velocity.x = MovementLogic.horizontal_velocity(velocity.x, direction, delta)
 
+	var impact_speed := velocity.y
 	move_and_slide()
 
-	if is_on_floor() and not was_on_floor:
-		_on_landed()
+	if started and is_on_floor() and not was_on_floor:
+		var boosted := Input.is_action_pressed("ui_accept") or window.pressed_recently()
+		velocity.y = BounceLogic.bounce_velocity(impact_speed, boosted)
+		last_impact_speed = impact_speed
+		window.register_landing(boosted)
+	elif started and just_pressed and window.landed_recently():
+		velocity.y = BounceLogic.bounce_velocity(last_impact_speed, true)
+		window.consume()
 
 	was_on_floor = is_on_floor()
-
-
-func _on_landed() -> void:
-	pass
