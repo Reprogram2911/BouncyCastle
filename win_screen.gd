@@ -9,6 +9,6 @@ func _ready() -> void:
 
 
 func show_win() -> void:
-	_label.text = "You win!\nCoins: %d" % CoinCounter.count
-	get_tree().paused = true
+	$ColorRect/Label.text = "YOU WIN\nCoins: %d" % CoinCounter.count
 	show()
+	get_tree().paused = true
