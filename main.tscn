@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://dkqrps3832630"]
 
+[ext_resource type="Texture2D" uid="uid://cdc1wt4dna2i3" path="res://Sprite-0001.png" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://bquuso1t48yh8" path="res://player.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://0ejprodd2uoh" path="res://sandMid.png" id="1_ig7tw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2y71"]
+size = Vector2(123, 263)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
 texture = ExtResource("1_ig7tw")
@@ -27,14 +32,23 @@ sources/0 = SubResource("TileSetAtlasSource_0xm2m")
 [node name="main" type="Node" unique_id=223951926]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1749066649]
+position = Vector2(64.167175, 143.69154)
+script = ExtResource("1_h2yge")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=308969439]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=265947089]
+texture_filter = 1
+position = Vector2(273.5, 241)
+scale = Vector2(9.546875, 8.53125)
+texture = ExtResource("1_0xm2m")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1768659534]
+position = Vector2(94, 1)
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1925159263]
+position = Vector2(201.33282, 193.80846)
+shape = SubResource("RectangleShape2D_u2y71")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1222901582]
 tile_set = SubResource("TileSet_wnspn")
